@@ -103,17 +103,11 @@ Use these constants to build full API endpoint URLs across your app to ensure ma
 
 ---
 
-## Usage
-
-
 ---
 
 ## Available Scripts
+nodemon index.js -(Node.js)
 
-* `npm start` — Runs the app in development mode
-* `npm run build` — Builds the app for production
-* `npm test` — Launches the test runner
-* `npm eject` — Removes create-react-app build dependency (use with caution)
 
 ---
 
