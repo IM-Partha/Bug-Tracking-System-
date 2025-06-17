@@ -17,7 +17,7 @@ const UpdateProject = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch existing project data
+
   useEffect(() => {
     const fetchProject = async () => {
       try {
@@ -41,7 +41,6 @@ const UpdateProject = () => {
     fetchProject();
   }, [id]);
 
-  // Handle form input changes
   const handleChange = (e) => {
     setProjectData({
       ...projectData,
@@ -49,7 +48,7 @@ const UpdateProject = () => {
     });
   };
 
-  // Handle form submission
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 

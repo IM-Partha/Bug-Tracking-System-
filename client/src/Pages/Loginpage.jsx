@@ -22,7 +22,6 @@ const Loginpage = () => {
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('username', res.data.user.username);
 
-      // Dispatch custom event to update Navbar immediately
       window.dispatchEvent(new Event('storageChanged'));
 
       navigate('/projects');

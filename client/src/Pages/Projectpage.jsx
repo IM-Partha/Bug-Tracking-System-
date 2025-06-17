@@ -36,7 +36,7 @@ const Projectpage = () => {
       await axios.delete(`${Url}/projects/delete/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      // After deletion, refresh project list
+   
       setProjects((prev) => prev.filter((project) => project.id !== id));
     } catch (err) {
       alert(err.response?.data?.message || 'Delete failed');

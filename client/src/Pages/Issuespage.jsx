@@ -67,7 +67,7 @@ const Issuespage = () => {
 
               </div>
               <div className="flex gap-2">
-                {/* You can implement Edit navigation or modal here */}
+              
                 <Link
                  to={`/updateissues/${issue.id}`}
                   className="bg-yellow-500 px-3 py-1 rounded hover:bg-yellow-600 text-white"

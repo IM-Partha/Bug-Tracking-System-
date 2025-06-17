@@ -30,7 +30,7 @@ const Createprojectpage = () => {
       
       localStorage.setItem('projectId', createdProject.id);
 
-      navigate('/projects'); // You can change this to '/createissues' if needed
+      navigate('/projects'); 
     } catch (error) {
       console.error('Error creating project:', error.response?.data || error.message);
     }

@@ -33,7 +33,7 @@ const CreateIssueForm = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert('Issue created!');
-      navigate('/issues'); // <-- Redirect here
+      navigate('/issues'); 
     } catch (err) {
       setError(err.response?.data?.message || 'Create issue failed');
     }

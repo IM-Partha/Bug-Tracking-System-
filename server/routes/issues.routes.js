@@ -9,19 +9,19 @@ const {
   deleteIssue,
 } = require('../controllers/issues.controller');
 
-// GET /api/issues - get all issues
+// GET /api/issues 
 router.get('/', getAllIssues);
 
-// GET /api/issues/:id - get issue by ID
+// GET /api/issues/:id 
 router.get('/gateissues/:id', getIssueById);
 
-// POST /api/issues - create new issue
+// POST /api/issues 
 router.post('/create/', createIssue);
 
-// PUT /api/issues/:id - update an issue
+// PUT /api/issues/:id 
 router.put('/updateissue/:id', updateIssue);
 
-// DELETE /api/issues/:id - delete an issue
+// DELETE /api/issues/:id 
 router.delete('/deleteissue/:id', deleteIssue);
 
 module.exports = router;

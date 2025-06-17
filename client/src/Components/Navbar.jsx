@@ -13,9 +13,7 @@ const Navbar = () => {
     };
 
     window.addEventListener('storage', handleStorageChange);
-    window.addEventListener('storageChanged', handleStorageChange); // custom event
-
-    // Run once on mount
+    window.addEventListener('storageChanged', handleStorageChange); 
     handleStorageChange();
 
     return () => {
@@ -28,7 +26,7 @@ const Navbar = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('username');
     setUsername(null);
-    window.location.href = '/login'; // Redirect to login page
+    window.location.href = '/login'; 
   };
 
   return (

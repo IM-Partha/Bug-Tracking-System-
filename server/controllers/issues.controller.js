@@ -1,6 +1,6 @@
-const db = require('../config/db'); // Your MySQL connection instance
+const db = require('../config/db'); 
 
-// Get all issues (optionally filtered by project_id)
+// Get all issues
 const getAllIssues = async (req, res) => {
   try {
     const { project_id } = req.query;
@@ -46,7 +46,6 @@ const createIssue = async (req, res) => {
       return res.status(400).json({ message: 'Title, description, status, and project_id are required' });
     }
 
-    // Optional: Check if the project exists
     const [projectCheck] = await db.promise().query(
       'SELECT id FROM projects WHERE id = ?',
       [project_id]
