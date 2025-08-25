@@ -24,7 +24,7 @@ const Loginpage = () => {
 
       window.dispatchEvent(new Event('storageChanged'));
 
-      navigate('/projects');
+     window.location.href = '/projects';
     } catch (err) {
       alert(err.response?.data?.message || 'Login failed');
     }

@@ -13,12 +13,10 @@ const Navbar = () => {
     };
 
     window.addEventListener('storage', handleStorageChange);
-    window.addEventListener('storageChanged', handleStorageChange); 
     handleStorageChange();
 
     return () => {
       window.removeEventListener('storage', handleStorageChange);
-      window.removeEventListener('storageChanged', handleStorageChange);
     };
   }, []);
 
@@ -26,14 +24,16 @@ const Navbar = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('username');
     setUsername(null);
-    window.location.href = '/login'; 
+    window.location.href = '/login';
   };
 
   return (
-    <nav className="bg-[#3498db] text-white p-4 shadow">
+    <nav className="bg-[#3498db] text-white p-4 shadow-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
+        {/* Logo */}
         <Link to="/" className="text-xl font-bold">Issue Tracker</Link>
 
+        {/* Hamburger for mobile */}
         <div className="md:hidden">
           <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
             <svg
@@ -48,24 +48,51 @@ const Navbar = () => {
           </button>
         </div>
 
-        <div className={`md:flex gap-4 ${menuOpen ? 'block' : 'hidden'} md:block`}>
-          <Link to="/projects" className="hover:underline">Projects</Link>
-          <Link to="/issues" className="hover:underline">Issues</Link>
+        {/* Menu Links */}
+        <div
+          className={`flex-col md:flex-row md:flex gap-4 absolute md:static w-full md:w-auto left-0 top-16 md:top-0 
+            ${menuOpen ? 'flex' : 'hidden'} md:flex
+            bg-white text-blue-600 md:bg-transparent md:text-white shadow-md md:shadow-none p-4 md:p-0
+            items-start md:items-center
+          `}
+        >
+          <Link
+            to="/projects"
+            className="px-4 py-2 rounded w-full md:w-auto text-center hover:bg-blue-500 hover:text-white transition-colors duration-200"
+          >
+            Projects
+          </Link>
+          <Link
+            to="/issues"
+            className="px-4 py-2 rounded w-full md:w-auto text-center hover:bg-blue-500 hover:text-white transition-colors duration-200"
+          >
+            Issues
+          </Link>
 
           {username ? (
             <>
-              <span className="px-3 py-1"><strong>{username}</strong></span>
+              <span className="px-4 py-2 font-semibold w-full md:w-auto text-center">{username}</span>
               <button
                 onClick={handleLogout}
-                className="bg-red-500 px-3 py-1 rounded hover:bg-red-600"
+                className="px-4 py-2 bg-red-500 rounded text-white w-full md:w-auto text-center hover:bg-red-600 transition-colors duration-200"
               >
                 Logout
               </button>
             </>
           ) : (
             <>
-              <Link to="/login" className="bg-white text-blue-600 px-3 py-1 rounded hover:bg-gray-100">Login</Link>
-              <Link to="/register" className="bg-white text-blue-600 px-3 py-1 rounded hover:bg-gray-100">Register</Link>
+              <Link
+                to="/login"
+                className="px-4 py-2 bg-blue-600 text-white rounded w-full md:w-auto text-center hover:bg-blue-700 transition-colors duration-200"
+              >
+                Login
+              </Link>
+              <Link
+                to="/register"
+                className="px-4 py-2 bg-blue-600 text-white rounded w-full md:w-auto text-center hover:bg-blue-700 transition-colors duration-200"
+              >
+                Register
+              </Link>
             </>
           )}
         </div>
