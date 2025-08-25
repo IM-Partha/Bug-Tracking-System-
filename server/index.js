@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5000;
 
 index.use(cors());
 index.use(express.json());
-index.get('ping',(req,res)=>{
+index.get('/ping',(req,res)=>{
   res.send("Pong")
 })
 index.use('/api/auth', authRoutes);
